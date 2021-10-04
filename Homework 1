@@ -49,7 +49,3 @@ SET SQL_SAFE_UPDATES = 1;
 
 
 
--- Q1
--- Find out how many sales were recorded each week on different days of the week
-USE 
-
