@@ -127,7 +127,7 @@ from project pj;
 -- table showing J_ID and S_ID for values corresponding to a non London based supplier for S_ID
 select sy.J_ID, sy.S_ID
 from supply sy
-where (sy.S_ID = 'S2' or sy.S_ID = 'S3' or sy.S_ID = 'S5');
+where sy.S_ID IN ('S2', 'S3', 'S5');
 
 -- What is the S_ID of the non-London based suppliers
 select sp.S_ID
