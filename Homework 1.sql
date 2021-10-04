@@ -114,6 +114,7 @@ having Total_Sales < 100;
 -- TASK 3
 -- USE PARTS DB
 USE parts;
+-- Q1
 -- Find the name and city of each project not supplied by a London-based supplier
 select * from parts.project;
 select * from parts.supplier;
