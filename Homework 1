@@ -77,3 +77,12 @@ SELECT * from shop.sales1;
 select sum(s.SalesAmount), s.SalesPerson
 from sales1 s
 group by s.SalesPerson;
+
+-- Q6
+select * from shop.sales1;
+-- How much (sum) each person sold for the given period, including the 
+-- number of sales per person, their average, lowest and highest sale amounts
+select sum(s.SalesAmount), s.SalesPerson, count(*) as 'Number_of_Sales', 
+avg(s.SalesAmount), min(s.SalesAmount), max(s.SalesAmount)
+from sales1 s
+group by s.SalesPerson;
