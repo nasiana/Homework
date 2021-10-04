@@ -1,0 +1,11 @@
+use PARTS;
+
+select * from parts.part; 
+select * from parts.project; 
+select * from parts.supplier; 
+select * from parts.supply; 
+
+-- find the name and weight from each red part
+select p.pname, p.colour
+from part p
+where p.colour = 'red';
