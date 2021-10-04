@@ -86,3 +86,10 @@ select sum(s.SalesAmount), s.SalesPerson, count(*) as 'Number_of_Sales',
 avg(s.SalesAmount), min(s.SalesAmount), max(s.SalesAmount)
 from sales1 s
 group by s.SalesPerson;
+
+-- Q7
+select * from shop.sales1;
+-- Find the total monetary sales amount achieved by each store
+select sum(s.SalesAmount), s.Store
+from sales1 s
+group by s.Store;
