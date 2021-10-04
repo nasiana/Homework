@@ -67,3 +67,9 @@ select s.SalesPerson, count(*) as 'Total_Sales'
 from sales1 s
 where s.SalesPerson = 'Annette';
 
+-- Q4
+SELECT * from shop.sales1;
+-- Find the total sales amount by each person by day
+SELECT sum(s.SalesAmount), s.SalesPerson, s.Day
+from sales1 s
+group by s.SalesPerson, s.Day;
