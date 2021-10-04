@@ -9,13 +9,16 @@ select * from parts.supply;
 
 -- Q1
 -- find the name and weight from each red part
--- i know that it is not necessary to add 'p.colour' in the select statetment but i do it so i can visibly see all the colours are indeed red.
+-- i know that it is not necessary to add 'p.colour' in the select statetment but i do it 
+-- so i can visibly see all the colours are indeed red.
 select p.pname as 'Part_Name', p.weight as 'Part_Weight', p.colour
 from part p
 where p.colour = 'red';
 
 -- Q2
 -- find all unique supplier(s) name from London
+-- i know that it is not necessary to add 's.city' in the select statetment but i do it 
+-- so i can visibly see all the cities are indeed London.
 select distinct s.sname as 'Supplier_Name', s.city 
 from supplier s
 where s.city = 'London';
