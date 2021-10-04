@@ -69,3 +69,11 @@ SELECT * from shop.sales1;
 SELECT sum(s.SalesAmount), s.SalesPerson, s.Day
 from sales1 s
 group by s.SalesPerson, s.Day;
+
+-- Q5
+use shop;
+SELECT * from shop.sales1;
+-- How much (sum) each person sold for the given period
+select sum(s.SalesAmount), s.SalesPerson
+from sales1 s
+group by s.SalesPerson;
