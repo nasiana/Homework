@@ -93,3 +93,12 @@ select * from shop.sales1;
 select sum(s.SalesAmount), s.Store
 from sales1 s
 group by s.Store;
+
+-- Q8 
+select * from shop.sales1;
+-- Find the number of sales by each person if they did less than 3 sales for 
+-- the past period
+SELECT count(*) as 'Number_Of_Sales', s.SalesPerson
+from sales1 s
+group by s.SalesPerson
+having count(*) < 3;
