@@ -141,3 +141,21 @@ from project pj
 INNER JOIN supply sy ON pj.j_ID = sy.j_ID
 where sy.S_ID IN 
                 (select sp.S_ID from supplier sp where City != 'London');
+                
+-- Q2
+select * from parts.part;
+select * from parts.project;
+select * from parts.supplier;
+select * from parts.supply;
+--
+select sp.city, sp.s_ID from supplier sp;
+select p.city, p.P_ID from part p;
+select pj.city, pj.J_ID from project pj;
+
+-- Find the supplier name, part name and project name for each case where a supplier supplies a project with a part, 
+-- but also the supplier city, project city and part city are the same
+select sp.sname as 'Supplier_Name', p.pname as 'Part_Name', pj.jname as 'Project_Name'
+from supply sy 
+LEFT JOIN supplier sp ON sy.S_ID = sp.s_ID
+LEFT JOIN part p ON sy.P_ID = P.P_ID
+LEFT JOIN project pj ON sy.J_ID = pj.J_ID;                
