@@ -60,5 +60,10 @@ SET SQL_SAFE_UPDATES = 1;
 -- doesn't have a corresponding primary key for 'SalesPerson' where we would have a unique ID for 'SalesPerson'
 -- that I would be able to use in the where clause in the 'UPDATE' function
 
-
+-- Q3
+select * from shop.sales1; 
+-- Find out how many sales did Annette do
+select s.SalesPerson, count(*) as 'Total_Sales'
+from sales1 s
+where s.SalesPerson = 'Annette';
 
