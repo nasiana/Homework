@@ -113,7 +113,7 @@ having Total_Sales < 100;
 
 -- TASK 3
 -- USE PARTS DB
-USE parts
+USE parts;
 -- Find the name and city of each project not supplied by a London-based supplier
 select * from parts.project;
 select * from parts.supplier;
@@ -124,7 +124,19 @@ select * from parts.supply;
 select pj.jname, pj.city, pj.j_id
 from project pj;
 
--- table showing J_ID and S_ID for values corresponding to a London based supplier for S_ID
+-- table showing J_ID and S_ID for values corresponding to a non London based supplier for S_ID
 select sy.J_ID, sy.S_ID
 from supply sy
-where (sy.S_ID = 'S1' or sy.S_ID = 'S4');
+where (sy.S_ID = 'S2' or sy.S_ID = 'S3' or sy.S_ID = 'S5');
+
+-- What is the S_ID of the non-London based suppliers
+select sp.S_ID
+from supplier sp
+where City != 'London';
+
+-- Find the name and city of each project not supplied by a London-based supplier
+-- self-joining project and supply tables 
+SELECT DISTINCT pj.jname as 'Name_of_Project', pj.city as 'City'
+from project pj
+INNER JOIN supply sy ON pj.j_ID = sy.j_ID
+where (sy.S_ID = 'S2' or sy.S_ID = 'S3' or sy.S_ID = 'S5');
