@@ -33,16 +33,12 @@ use shop;
 select * from shop.sales1; 
 
 -- Q1
+select * from shop.sales1; 
 -- Find out how many sales were recorded each week on different days of the week
-SELECT DISTINCT s.Day, s.Week as 'Week', count(s.Day)
+SELECT s.Day, s.Week, count(*) as 'Frequency_of_Sales'
 from sales1 s
-group by Week; 
---
-SELECT s.Day, s.Week, count(s.Day)
-from sales1 s
-group by s.Week; 
--- 
-select distinct s.day from sales1 s;
+group by s.Week, s.Day
+order by s.Week; 
 
 -- Q2
 -- We need to change salesperson's name Inga to Annette
