@@ -102,3 +102,11 @@ SELECT count(*) as 'Number_Of_Sales', s.SalesPerson
 from sales1 s
 group by s.SalesPerson
 having count(*) < 3;
+
+-- Q9
+select * from shop.sales1;
+-- Find the total amount of sales by month where combined total is less than £100
+SELECT sum(s.SalesAmount) as 'Total_Sales', s.Month 
+from sales1 s
+group by s.Month
+having Total_Sales < 100;
