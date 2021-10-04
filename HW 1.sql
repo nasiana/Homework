@@ -34,12 +34,13 @@ select * from parts.project;
 select * from parts.supplier;
 select * from parts.supply;
 --
-select s.sname, s.s_ID from supplier s;
-select p.pname, p.P_ID from part p;
-select pj.jname, pj.J_ID from project pj;
+select sp.city, sp.s_ID from supplier sp;
+select p.city, p.P_ID from part p;
+select pj.city, pj.J_ID from project pj;
 --
 select sp.sname as 'Supplier_Name', p.pname as 'Part_Name', pj.jname as 'Project_Name'
 from supply sy 
 LEFT JOIN supplier sp ON sy.S_ID = sp.s_ID
 LEFT JOIN part p ON sy.P_ID = P.P_ID
-LEFT JOIN project pj ON sy.J_ID = pj.J_ID;
+LEFT JOIN project pj ON sy.J_ID = pj.J_ID
+where (sp.city = p.city = pj.city);
