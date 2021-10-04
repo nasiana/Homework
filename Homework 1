@@ -6,6 +6,7 @@ select * from parts.supplier;
 select * from parts.supply; 
 
 -- TASK 1
+-- USE PARTS DB TO WRITE THE FOLLOWING QUERIES
 
 -- Q1
 -- find the name and weight from each red part
@@ -24,3 +25,8 @@ from supplier s
 where s.city = 'London';
 
 -- TASK 2
+-- USE SHOP SALES DB TO WRITE THE FOLLOWING QUERIES
+
+-- Q1
+-- Find out how many sales were recorded each week on different days of the week
+
