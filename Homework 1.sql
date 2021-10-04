@@ -120,8 +120,8 @@ select * from parts.supplier;
 select * from parts.part;
 select * from parts.supply;
 
--- table showing project name and project city
-select pj.jname, pj.city
+-- table showing project name, project city and J_ID
+select pj.jname, pj.city, pj.j_id
 from project pj;
 
 -- table showing J_ID and S_ID for values corresponding to a London based supplier for S_ID
