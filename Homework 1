@@ -110,3 +110,21 @@ SELECT sum(s.SalesAmount) as 'Total_Sales', s.Month
 from sales1 s
 group by s.Month
 having Total_Sales < 100;
+
+-- TASK 3
+-- USE PARTS DB
+USE parts
+-- Find the name and city of each project not supplied by a London-based supplier
+select * from parts.project;
+select * from parts.supplier;
+select * from parts.part;
+select * from parts.supply;
+
+-- table showing project name and project city
+select pj.jname, pj.city
+from project pj;
+
+-- table showing J_ID and S_ID for values corresponding to a London based supplier for S_ID
+select sy.J_ID, sy.S_ID
+from supply sy
+where (sy.S_ID = 'S1' or sy.S_ID = 'S4');
