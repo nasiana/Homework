@@ -33,6 +33,22 @@ use shop;
 
 select * from shop.sales1; 
 
+-- Q2
+-- We need to change salesperson's name Inga to Annette
+use shop;
+
+SET SQL_SAFE_UPDATES = 0;
+UPDATE sales1
+SET 
+    SalesPerson = 'Annette';
+SET SQL_SAFE_UPDATES = 1;
+
+-- For this question I had to temporary disable the safe update option of MySQL as the 'sales1' table for the shop database
+-- doesn't have a corresponding primary key for 'SalesPerson' where we would have a unique ID for 'SalesPerson'
+--that I would be able to use in the where clause in the 'UPDATE' function
+
+
+
 -- Q1
 -- Find out how many sales were recorded each week on different days of the week
 USE 
