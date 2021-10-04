@@ -136,12 +136,7 @@ where City != 'London';
 
 -- Find the name and city of each project not supplied by a London-based supplier
 -- self-joining project and supply tables 
-SELECT DISTINCT pj.jname as 'Name_of_Project', pj.city as 'City'
-from project pj
-INNER JOIN supply sy ON pj.j_ID = sy.j_ID
-where (sy.S_ID = 'S2' or sy.S_ID = 'S3' or sy.S_ID = 'S5');
---
-SELECT DISTINCT pj.jname as 'Name_of_Project', pj.city as 'City'
+SELECT DISTINCT pj.jname as 'Name_of_Project', pj.city as 'City_of_Project'
 from project pj
 INNER JOIN supply sy ON pj.j_ID = sy.j_ID
 where sy.S_ID IN ('S2', 'S3', 'S5');
