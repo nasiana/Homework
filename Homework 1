@@ -5,6 +5,8 @@ select * from parts.project;
 select * from parts.supplier; 
 select * from parts.supply; 
 
+-- TASK 1
+
 -- find the name and weight from each red part
 -- i know that it is not necessary to add 'p.colour' in the select statetment but i do it so i can visibly see all the colours are indeed red.
 select p.pname as 'Part_Name', p.weight as 'Part_Weight', p.colour
@@ -15,3 +17,5 @@ where p.colour = 'red';
 select distinct s.sname as 'Supplier_Name', s.city 
 from supplier s
 where s.city = 'London';
+
+-- TASK 2
