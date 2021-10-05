@@ -23,12 +23,34 @@ select sy.J_ID, sy.S_ID
 from supply sy
 where sy.S_ID IN ('S2', 'S3', 'S5');
 
+
 -- Find the name and city of each project not supplied by a London-based supplier
 -- self-joining project and supply tables 
 SELECT DISTINCT pj.jname as 'Name_of_Project', pj.city as 'City_of_Project'
 from project pj
 INNER JOIN supply sy ON pj.j_ID = sy.j_ID
 where sy.S_ID IN (select sp.S_ID
+from supplier sp
+where City != 'London');
+-- Projects have multiple suppliers
+-- excludes project which have any supplier which is London based
+SELECT DISTINCT pj.jname as 'Name_of_Project', pj.city as 'City_of_Project'
+from project pj
+INNER JOIN supply sy ON pj.j_ID = sy.j_ID
+where (sy.S_ID IN (select sp.S_ID
+from supplier sp
+where City != 'London'))
+and
+(sy.S_ID NOT IN (select sp.S_ID
+from supplier sp
+where City = 'London'));
+
+-- shows all the projects which have only London based supplier
+SELECT DISTINCT pj.jname as 'Name_of_Project', pj.city as 'City_of_Project'
+from project pj
+INNER JOIN supply sy ON pj.j_ID = sy.j_ID
+where 
+sy.S_ID NOT IN (select sp.S_ID
 from supplier sp
 where City != 'London');
 
@@ -53,3 +75,4 @@ LEFT JOIN part p ON sy.P_ID = P.P_ID
 LEFT JOIN project pj ON sy.J_ID = pj.J_ID;
 
 -- but also the supplier city, project city and part city are the same
+-- 
