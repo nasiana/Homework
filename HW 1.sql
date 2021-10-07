@@ -65,4 +65,3 @@ LEFT JOIN part p ON sy.P_ID = P.P_ID
 LEFT JOIN project pj ON sy.J_ID = pj.J_ID;
 
 -- but also the supplier city, project city and part city are the same
--- 
