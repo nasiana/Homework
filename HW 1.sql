@@ -33,23 +33,6 @@ where sy.S_ID IN (select sp.S_ID
 from supplier sp
 where City != 'London');
 
--- shows all the projects which have only London based supplier
--- without the double negative as Hassan advised
-SELECT pj.jname as 'Name_of_Project', pj.city as 'City_of_Project'
-from project pj
-INNER JOIN supply sy ON pj.j_ID = sy.j_ID
-where 
-	sy.S_ID IN (select sp.S_ID
-		from supplier sp
-		where City = 'London');
-
--- shows all the projects which have only London based supplier
--- with a simplified code as Hassan advised instead of the subquery
-SELECT DISTINCT pj.jname as 'Name_of_Project', pj.city as 'City_of_Project'
-from project pj
-INNER JOIN supply sy ON pj.j_ID = sy.j_ID
-inner join SUPPLIER sp on sp.s_id = sy.s_id
-where sp.City = 'London';
 
 -- shows all the projects which have only non London based supplier
 -- with a simplified code as Hassan advised instead of the subquery
