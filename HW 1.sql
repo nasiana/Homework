@@ -58,13 +58,26 @@ where
 
 -- shows all the projects which have only London based supplier
 -- with a simplified code as Hassan advised instead of the subquery
-SELECT pj.jname as 'Name_of_Project', pj.city as 'City_of_Project'
+SELECT DISTINCT pj.jname as 'Name_of_Project', pj.city as 'City_of_Project'
 from project pj
 INNER JOIN supply sy ON pj.j_ID = sy.j_ID
 inner join SUPPLIER sp on sp.s_id = sy.s_id
 where sp.City = 'London';
 
+SELECT DISTINCT pj.jname as 'Name_of_Project', pj.city as 'City_of_Project'
+from project pj
+INNER JOIN supply sy ON pj.j_ID = sy.j_ID
+inner join SUPPLIER sp on sp.s_id = sy.s_id
+where sp.City != 'London';
 
+-- shows all the projects which have only non London based supplier
+-- with a simplified code as Hassan advised instead of the subquery
+SELECT pj.jname as 'Name_of_Project', pj.city as 'City_of_Project'
+from project pj
+INNER JOIN supply sy ON pj.j_ID = sy.j_ID
+inner join SUPPLIER sp on sp.s_id = sy.s_id
+group by sp.city
+having sp.City != 'London';
 
 
 -- Q2
