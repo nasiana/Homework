@@ -58,10 +58,23 @@ select pj.city, pj.J_ID from project pj;
 
 -- Find the supplier name, part name and project name for each case where a supplier supplies a project with a part, 
 -- but also the supplier city, project city and part city are the same
-select sp.sname as 'Supplier_Name', p.pname as 'Part_Name', pj.jname as 'Project_Name'
+select sp.sname as 'Supplier_Name', p.pname as 'Part_Name', pj.jname as 'Project_Name', 
+sp.city as 'Supplier_City', pj.city as 'Project_City', p.city as 'Part_City'
 from supply sy 
 LEFT JOIN supplier sp ON sy.S_ID = sp.s_ID
 LEFT JOIN part p ON sy.P_ID = P.P_ID
-LEFT JOIN project pj ON sy.J_ID = pj.J_ID;
+LEFT JOIN project pj ON sy.J_ID = pj.J_ID
+group by sp.city, pj.city, p.city
+having sp.city = pj.city AND pj.city = p.city
+;
 
+select sp.sname as 'Supplier_Name', p.pname as 'Part_Name', pj.jname as 'Project_Name', 
+sp.city, pj.city, p.city 
+from supply sy 
+LEFT JOIN supplier sp ON sy.S_ID = sp.s_ID
+LEFT JOIN part p ON sy.P_ID = P.P_ID
+LEFT JOIN project pj ON sy.J_ID = pj.J_ID
+group by sp.city, pj.city, p.city
+having sp.city = pj.city = p.city
+;
 -- but also the supplier city, project city and part city are the same
