@@ -178,4 +178,4 @@ LEFT JOIN supplier sp ON sy.S_ID = sp.s_ID
 LEFT JOIN part p ON sy.P_ID = P.P_ID
 LEFT JOIN project pj ON sy.J_ID = pj.J_ID
 where sp.city = pj.city AND pj.city = p.city
-;               
+;             
