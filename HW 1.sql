@@ -32,6 +32,7 @@ INNER JOIN supply sy ON pj.j_ID = sy.j_ID
 where sy.S_ID IN (select sp.S_ID
 from supplier sp
 where City != 'London');
+
 -- Projects have multiple suppliers
 -- excludes project which have any supplier which is London based
 SELECT DISTINCT pj.jname as 'Name_of_Project', pj.city as 'City_of_Project'
@@ -46,13 +47,25 @@ from supplier sp
 where City = 'London'));
 
 -- shows all the projects which have only London based supplier
-SELECT DISTINCT pj.jname as 'Name_of_Project', pj.city as 'City_of_Project'
+-- without the double negative as Hassan advised
+SELECT pj.jname as 'Name_of_Project', pj.city as 'City_of_Project'
 from project pj
 INNER JOIN supply sy ON pj.j_ID = sy.j_ID
 where 
-sy.S_ID NOT IN (select sp.S_ID
-from supplier sp
-where City != 'London');
+	sy.S_ID IN (select sp.S_ID
+		from supplier sp
+		where City = 'London');
+
+-- shows all the projects which have only London based supplier
+-- with a simplified code as Hassan advised instead of the subquery
+SELECT pj.jname as 'Name_of_Project', pj.city as 'City_of_Project'
+from project pj
+INNER JOIN supply sy ON pj.j_ID = sy.j_ID
+inner join SUPPLIER sp on sp.s_id = sy.s_id
+where sp.City = 'London';
+
+
+
 
 -- Q2
 -- USE PARTS DB
