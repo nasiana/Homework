@@ -30,11 +30,21 @@ print(message)
 
 # x must always be set to 1
 eggs = x = 1
-box = 6 * x
-total_boxes = box/6
+
+# BOX: b can be varied
+b = 6
+box = b * x
+total_boxes = box/b
 print("{} is the total number of eggs in {} boxes".format(box, total_boxes))
-omelette = 4 * x
-total_omelette = omelette/4
+
+# Omelette: o can be varied
+o = 4
+omelette = o * x
+total_omelette = omelette/o
 print("{} is the total number of eggs in {} omelette".format(omelette, total_omelette))
-omelette_box = box/4
+
+# final
+omelette_box = box/o
 print("You can make {} omelettes with {} boxes of eggs".format(omelette_box,total_boxes))
+
+
