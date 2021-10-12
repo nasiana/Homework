@@ -28,11 +28,13 @@ print(message)
 
 # TASK 3: Q3
 
-x = 1
-eggs = x
+# x must always be set to 1
+eggs = x = 1
 box = 6 * x
-# print(Box)
+total_boxes = box/6
+print("{} is the total number of eggs in {} boxes".format(box, total_boxes))
 omelette = 4 * x
-# print(Omelette)
-omelette_box = box/omelette
-print("You can make {} omelettes with {} boxes of eggs".format(omelette_box,x))
+total_omelette = omelette/4
+print("{} is the total number of eggs in {} omelette".format(omelette, total_omelette))
+omelette_box = box/4
+print("You can make {} omelettes with {} boxes of eggs".format(omelette_box,total_boxes))
