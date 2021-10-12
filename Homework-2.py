@@ -12,11 +12,27 @@ total_nails = chairs * nails
 message = 'I need to buy {} nails'.format(total_nails)
 print('{}'.format(message))
 
-# incorrect version TASK 3 (PYTHON Q2)
+# corrected version 1 TASK 3 (PYTHON Q2)
+Penelope = "Penelope"
 my_name = Penelope
-
 my_age = 29
-
 message = 'My name is {} and I am {} years old'.format(my_name, my_age)
-
 print(message)
+
+# corrected version 2 TASK 3 (PYTHON Q2)
+
+my_name = 'Penelope'
+my_age = 29
+message = 'My name is {} and I am {} years old'.format(my_name, my_age)
+print(message)
+
+# TASK 3: Q3
+
+x = 1
+eggs = x
+box = 6 * x
+# print(Box)
+omelette = 4 * x
+# print(Omelette)
+omelette_box = box/omelette
+print("You can make {} omelettes with {} boxes of eggs".format(omelette_box,x))
