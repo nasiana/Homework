@@ -90,6 +90,7 @@ print("You can make {} omelettes with {} boxes of eggs.".format(user_omellettes,
 
 # TASK 3: Q4
 
+# TASK 3: Q4: TASK 1
 my_str = "I love coding."
 print(my_str)
 
@@ -118,3 +119,9 @@ print(result)
 my_str = "I love coding."
 print(my_str)
 print(my_str.replace(".", "!", 1))
+
+# TASK 3: Q4: TASK 2
+
+my_str_1="EVERY Exercise Brings Me Closer to Completing my GOALS."
+print(my_str_1)
+print(my_str_1.lower())
