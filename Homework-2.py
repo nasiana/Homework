@@ -93,6 +93,10 @@ print("You can make {} omelettes with {} boxes of eggs.".format(user_omellettes,
 my_str = "I love coding."
 print(my_str)
 
+###
+# METHOD 1
+###
+
 # In Python, strings are immutable therefore had to create a new copy of my_str as result
 # results is a copy of my_str with the relevant substitions
 result = ''
@@ -107,5 +111,10 @@ for i in my_str:
 
 print(result)
 
+###
+# METHOD 2
+###
 
-
+my_str = "I love coding."
+print(my_str)
+print(my_str.replace(".", "!", 1))
