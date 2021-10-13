@@ -87,3 +87,23 @@ user_boxes = relation_o * total_o_varied
 print("With {} boxes of eggs, you can make {} omelettes.".format(user_boxes,total_o_varied))
 user_omellettes = relation_b * total_b_varied
 print("You can make {} omelettes with {} boxes of eggs.".format(user_omellettes, total_b_varied))
+
+# TASK 3: Q4
+
+my_str = "I love coding."
+# In Python, strings are immutable therefore had to create a new copy of my_str as result
+# results is a copy of my_str with the relevant substitions
+result = ''
+to_replace = '.'
+replaced = '!'
+
+for i in my_str:
+    if i == to_replace:
+        result += replaced
+    else:
+        result = result + i
+
+print(result)
+
+
+
