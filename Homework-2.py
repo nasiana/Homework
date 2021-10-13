@@ -34,6 +34,7 @@ eggs = x = 1
 # # #
 # METHOD 1: user to vary total_o_varied and total_b_varied
 # # #
+
 # BOX: b can be varied
 b = 6
 o = 4
