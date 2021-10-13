@@ -91,6 +91,8 @@ print("You can make {} omelettes with {} boxes of eggs.".format(user_omellettes,
 # TASK 3: Q4
 
 my_str = "I love coding."
+print(my_str)
+
 # In Python, strings are immutable therefore had to create a new copy of my_str as result
 # results is a copy of my_str with the relevant substitions
 result = ''
