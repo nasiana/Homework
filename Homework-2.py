@@ -31,14 +31,21 @@ print(message)
 # x must always be set to 1
 eggs = x = 1
 
+# # #
+# METHOD 1: user to vary total_o_varied and total_b_varied
+# # #
 # BOX: b can be varied
 b = 6
 o = 4
 box = b * x
+# set the value for number_boxes in case you want to vary x
 number_boxes = box/b
 print("{} is the total number of eggs in {} boxes".format(box, number_boxes))
 # total_b_varied is the variable to be varied by user
 total_b_varied = 10
+# total_b_o calculates the omellettes that can be made from total_b_varied boxes of eggs. It does this by multiplying \
+# the total_b_varied variable to be varied by the user by the box variable to calculate the total number of eggs \
+# then by divided the total number of eggs by parameter o
 total_b_o = ((total_b_varied) * box)/o
 print("With {} boxes of eggs, you can make {} omelettes.".format(total_b_varied,total_b_o))
 
@@ -50,12 +57,19 @@ number_omelette = omelette/o
 print("{} is the total number of eggs in {} omelette".format(omelette, number_omelette))
 # total_o_varied is the variable to be varied by user
 total_o_varied = 15
+# total_o_b calculates the number of boxes used from making total_o_varied of omelettes. It does this by multiplying \
+# the total_o_varied variable to be varied by the user by the omelette variable to calculate the total number of eggs \
+# then by divides the total number of eggs by parameter b
 total_o_b = ((total_o_varied) * omelette)/b
 print("You can make {} omelettes with {} boxes of eggs.".format(total_o_varied, total_o_b))
 
 # general statement/sanity check
 omelette_box = box/o
 print("You can make {} omelettes with {} boxes of eggs".format(omelette_box,number_boxes))
+
+# # #
+# METHOD 2: user to vary total_o_varied and total_b_varied
+# # #
 
 # mathematical relationships
 o = 4
