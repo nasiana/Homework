@@ -233,7 +233,7 @@ i  =  0
     else:
         print("You can not enter more than 3 items")
 
-def cashier_receipt():
+def cashier_receipt_loop():
     i  =  0
     while i < 3:
         item_name = input("What is the name of the item: ")
@@ -246,5 +246,10 @@ def cashier_receipt():
             break
     else:
         print("You can not enter more than 3 items")
+    return
+
+def cashier_receipt():
+    cashier_receipt_loop()
 
 cashier_receipt()
+
