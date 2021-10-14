@@ -219,4 +219,32 @@ def calculate_vat(amount):
 	return amount * 1.2
 print(calculate_vat(100))
 
+# TASK 3: Q8
 
+def cashier_receipt():
+i  =  0
+    while i < 3:
+        item_1_name = input("What is the name of item 1: ")
+        item_1_price = float(input("What is the price of item 1: "))
+        item_2_name = input("What is the name of item 2: ")
+        item_2_price = float(input("What is the price of item 2: "))
+        item_3_name = input("What is the name of item 3: ")
+        item_3_price = float(input("What is the price of item 3: "))
+    else:
+        print("You can not enter more than 3 items")
+
+def cashier_receipt():
+    i  =  0
+    while i < 3:
+        item_name = input("What is the name of the item: ")
+        item_price = float(input("What is the price of the item: "))
+        i += 1
+        user_q = (input("Do you want to enter more items? Enter Y/N")).lower()
+        if user_q == ('Y').lower():
+            continue
+        else:
+            break
+    else:
+        print("You can not enter more than 3 items")
+
+cashier_receipt()
