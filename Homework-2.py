@@ -125,3 +125,23 @@ print(my_str.replace(".", "!", 1))
 my_str_1="EVERY Exercise Brings Me Closer to Completing my GOALS."
 print(my_str_1)
 print(my_str_1.lower())
+
+# TASK 3: Q4: TASK 3
+
+my_str_2 = "We enjoy travelling"
+
+###
+# METHOD 1: If statement
+###
+
+if my_str_2[0] == 'A':
+        print("The string does start with A")
+else:
+        print("The string does not start with A")
+
+###
+# METHOD 2
+###
+my_str_2 = "We enjoy travelling"
+print("Does the string start with A: {}".format(my_str_2.startswith('A')))
+
