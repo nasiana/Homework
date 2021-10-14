@@ -145,3 +145,21 @@ else:
 my_str_2 = "We enjoy travelling"
 print("Does the string start with A: {}".format(my_str_2.startswith('A')))
 
+# TASK 3: Q4: TASK 4
+
+my_str_3="1.458.001"
+# Type your code here:
+
+###
+# METHOD 1
+###
+print(len(my_str_3))
+
+###
+# METHOD 2
+###
+
+count = 0
+for i in my_str_3:
+    count += 1
+print(count)
