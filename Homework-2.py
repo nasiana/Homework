@@ -196,4 +196,10 @@ print(wrd[1:5:2])
 print(wrd[-5:-1:2])
 print(wrd[1:-1:2])
 
-# 
+# TASK 3: Q6
+
+for number in range(100):
+	output = 'o' * number
+	print(output)
+
+# TASK 3: Q7
