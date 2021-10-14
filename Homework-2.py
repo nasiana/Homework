@@ -122,7 +122,7 @@ print(my_str.replace(".", "!", 1))
 
 # TASK 3: Q4: TASK 2
 
-my_str_1="EVERY Exercise Brings Me Closer to Completing my GOALS."
+my_str_1 = "EVERY Exercise Brings Me Closer to Completing my GOALS."
 print(my_str_1)
 print(my_str_1.lower())
 
@@ -135,9 +135,9 @@ my_str_2 = "We enjoy travelling"
 ###
 
 if my_str_2[0] == 'A':
-        print("The string does start with A")
+    print("The string does start with A")
 else:
-        print("The string does not start with A")
+    print("The string does not start with A")
 
 ###
 # METHOD 2
@@ -147,8 +147,7 @@ print("Does the string start with A: {}".format(my_str_2.startswith('A')))
 
 # TASK 3: Q4: TASK 4
 
-my_str_3="1.458.001"
-# Type your code here:
+my_str_3 = "1.458.001"
 
 ###
 # METHOD 1
@@ -163,3 +162,38 @@ count = 0
 for i in my_str_3:
     count += 1
 print(count)
+
+# TASK 3: Q5
+
+# TASK 3: Q5: TASK 1
+
+# Task 1 - Slice the word so that you get "thon".
+
+wrd = "Python"
+
+print(wrd[2::])
+print(wrd[-4::])
+
+#T ask 2 - Slice the word until "o". (Pyth)
+
+wrd = "Python"
+
+print(wrd[:4:])
+print(wrd[:-2:])
+
+# Task 3 - Now try to get "th" only.
+
+wrd = "Python"
+
+print(wrd[2:4:])
+print(wrd[-4:-2:])
+
+# Task 4 - Now slice the word with steps of 2, excluding first and last characters
+
+wrd="Python"
+
+print(wrd[1:5:2])
+print(wrd[-5:-1:2])
+print(wrd[1:-1:2])
+
+# 
