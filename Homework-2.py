@@ -235,21 +235,25 @@ i  =  0
 
 def cashier_receipt_loop():
     i  =  0
-    while i < 3:
-        item_name = input("What is the name of the item: ")
-        item_price = float(input("What is the price of the item: "))
-        i += 1
-        user_q = (input("Do you want to enter more items? Enter Y/N")).lower()
-        if user_q == ('Y').lower():
-            continue
+    for i in range(3):
+        while i < 3:
+            item_name = input("What is the name of the item: ")
+            item_price = float(input("What is the price of the item: "))
+            i += 1
+            user_q = (input("Do you want to enter more items? Enter Y/N")).lower()
+            if user_q == ('Y').lower():
+                continue
+            else:
+                break
         else:
-            break
-    else:
-        print("You can not enter more than 3 items")
-    return
+            print("You can not enter more than 3 items")
+        return
+    
+cashier_receipt_loop()
 
 def cashier_receipt():
     cashier_receipt_loop()
+
 
 cashier_receipt()
 
