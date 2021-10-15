@@ -221,25 +221,29 @@ print(calculate_vat(100))
 
 # TASK 3: Q8
 
-def cashier_receipt():
-i  =  0
-    while i < 3:
-        item_1_name = input("What is the name of item 1: ")
-        item_1_price = float(input("What is the price of item 1: "))
-        item_2_name = input("What is the name of item 2: ")
-        item_2_price = float(input("What is the price of item 2: "))
-        item_3_name = input("What is the name of item 3: ")
-        item_3_price = float(input("What is the price of item 3: "))
-    else:
-        print("You can not enter more than 3 items")
+# def cashier_receipt():
+# i  =  0
+#     while i < 3:
+#         item_1_name = input("What is the name of item 1: ")
+#         item_1_price = float(input("What is the price of item 1: "))
+#         item_2_name = input("What is the name of item 2: ")
+#         item_2_price = float(input("What is the price of item 2: "))
+#         item_3_name = input("What is the name of item 3: ")
+#         item_3_price = float(input("What is the price of item 3: "))
+#     else:
+#         print("You can not enter more than 3 items")
 
 def cashier_receipt_loop():
-    i  =  0
     for i in range(3):
+    i  =  0
         while i < 3:
+            i += 1
             item_name = input("What is the name of the item: ")
             item_price = float(input("What is the price of the item: "))
-            i += 1
+            item_name_list_empty = []
+            item_name_list = item_name_list_empty + item_name
+            item_price_list_empty = []
+            item_price_list = item_price_list_empty.append(item_price)
             user_q = (input("Do you want to enter more items? Enter Y/N")).lower()
             if user_q == ('Y').lower():
                 continue
@@ -247,9 +251,9 @@ def cashier_receipt_loop():
                 break
         else:
             print("You can not enter more than 3 items")
-        return
-    
-cashier_receipt_loop()
+        return i
+    print(item_name_list)
+    print(item_price_list)
 
 def cashier_receipt():
     cashier_receipt_loop()
