@@ -221,7 +221,6 @@ print(calculate_vat(100))
 
 # TASK 3: Q8
 
-
 def cashier_receipt_loop():
         global item_name_list
         global item_price_list
