@@ -222,25 +222,26 @@ print(calculate_vat(100))
 # TASK 3: Q8
 
 def cashier_receipt_loop():
-        global item_name_list
-        global item_price_list
-        item_name_list = []
-        item_price_list = []
-        i  =  0
-        while i < 3:
-            i += 1
-            item_name = input("What is the name of the item: ")
-            item_price = float(input("What is the price of the item: "))
-            item_name_list.append(item_name)
-            item_price_list.append(item_price)
-            user_q = (input("Do you want to enter more items? Enter Y/N")).lower()
-            if user_q == ('Y').lower():
-                continue
-            else:
-                break
+    global item_name_list
+    global item_price_list
+    item_name_list = []
+    item_price_list = []
+    i = 0
+    while i < 3:
+        i += 1
+        item_name = input("What is the name of the item: ")
+        item_price = float(input("What is the price of the item: "))
+        item_name_list.append(item_name)
+        item_price_list.append(item_price)
+        user_q = (input("Do you want to enter more items? Enter Y/N")).lower()
+        if user_q == ('Y').lower():
+            continue
         else:
-            print("You can not enter more than 3 items")
-        return item_name, item_price, item_name_list, item_price_list
+            break
+    else:
+        print("You can not enter more than 3 items")
+    return item_name, item_price, item_name_list, item_price_list
+
 
 def cashier_receipt():
     cashier_receipt_loop()
@@ -251,6 +252,7 @@ def cashier_receipt():
     print(("TOTAL").ljust(10, ' ') + (str(total_price)).rjust(10, ' '))
 
 cashier_receipt()
+
 
 
 
