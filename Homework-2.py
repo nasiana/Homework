@@ -244,8 +244,10 @@ def cashier_receipt_loop():
 
 def cashier_receipt():
     cashier_receipt_loop()
+    total_price = sum(item_price_list)
     item_name_price = [[x, y] for x, y in zip(item_name_list, item_price_list)]
-    print(item_name_price)
+    for i in range(len(item_name_price)):
+        print(item_name_price[i][0], item_name_price[i][1])
 
 cashier_receipt()
 
