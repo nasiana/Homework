@@ -234,16 +234,19 @@ print(calculate_vat(100))
 #         print("You can not enter more than 3 items")
 
 def cashier_receipt_loop():
-    for i in range(3):
-    i  =  0
+        global item_price
+        global item_name
+        global item_name_list
+        global item_price_list
+        item_name_empty = []
+        item_price_empty = []
+        i  =  0
         while i < 3:
             i += 1
             item_name = input("What is the name of the item: ")
             item_price = float(input("What is the price of the item: "))
-            item_name_list_empty = []
-            item_name_list = item_name_list_empty + item_name
-            item_price_list_empty = []
-            item_price_list = item_price_list_empty.append(item_price)
+            item_name_list.append(item_name)
+            item_price_list.append(item_price)
             user_q = (input("Do you want to enter more items? Enter Y/N")).lower()
             if user_q == ('Y').lower():
                 continue
@@ -251,13 +254,19 @@ def cashier_receipt_loop():
                 break
         else:
             print("You can not enter more than 3 items")
-        return i
-    print(item_name_list)
-    print(item_price_list)
+        return item_name, item_price, item_name_empty, item_price_empty
+
+cashier_receipt_loop()
+print(item_name)
+print(item_price)
+print(item_name_empty)
+print(item_price_empty)
+
+for i in range(i):
+
 
 def cashier_receipt():
-    cashier_receipt_loop()
-
+    cashier_receipt_l
 
 cashier_receipt()
 
