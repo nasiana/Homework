@@ -254,15 +254,10 @@ def cashier_receipt_loop():
             print("You can not enter more than 3 items")
         return item_name, item_price, item_name_empty, item_price_empty
 
-cashier_receipt_loop()
-print(item_name_list)
-print(item_price_list)
-
-
 def cashier_receipt():
     cashier_receipt_loop()
-    # for x in item_name_list:
-
+    list_to_dict = {item_name_list[i]: item_price_list[i] for i in range(len(item_name_list))}
+    print("Resultant dictionary is : {}".format(list_to_dict))
 
 cashier_receipt()
 
