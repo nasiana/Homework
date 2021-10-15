@@ -248,20 +248,11 @@ def cashier_receipt():
     item_name_price = [[x, y] for x, y in zip(item_name_list, item_price_list)]
     for i in range(len(item_name_price)):
         print((item_name_price[i][0]).ljust(10, '.') + (str(item_name_price[i][1])).rjust(10, '.'))
+    print(("TOTAL").ljust(10, ' ') + (str(total_price)).rjust(10, ' '))
 
 cashier_receipt()
 
-# def cashier_receipt_dict():
-#     cashier_receipt_loop()
-#     global list_to_dict = {item_name_list[i]: item_price_list[i] for i in range(len(item_name_list))}
-#
-# def cashier_receipt():
-#     cashier_receipt_dict()
-#     x = list_to_dict.items()
-#     print(x)
-#     # for i in list_to_dict:
-#     #     print(i)
-#     # print("Resultant dictionary is : {}".format(list_to_dict))
+
 
 
 
