@@ -240,7 +240,7 @@ def cashier_receipt_loop():
                 break
         else:
             print("You can not enter more than 3 items")
-        return item_name, item_price, item_name_empty, item_price_empty
+        return item_name, item_price, item_price_list, item_name_list
 
 def cashier_receipt():
     cashier_receipt_loop()
