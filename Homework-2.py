@@ -234,12 +234,10 @@ print(calculate_vat(100))
 #         print("You can not enter more than 3 items")
 
 def cashier_receipt_loop():
-        global item_price
-        global item_name
         global item_name_list
         global item_price_list
-        item_name_empty = []
-        item_price_empty = []
+        item_name_list = []
+        item_price_list = []
         i  =  0
         while i < 3:
             i += 1
@@ -257,16 +255,14 @@ def cashier_receipt_loop():
         return item_name, item_price, item_name_empty, item_price_empty
 
 cashier_receipt_loop()
-print(item_name)
-print(item_price)
-print(item_name_empty)
-print(item_price_empty)
-
-for i in range(i):
+print(item_name_list)
+print(item_price_list)
 
 
 def cashier_receipt():
-    cashier_receipt_l
+    cashier_receipt_loop()
+    # for x in item_name_list:
+
 
 cashier_receipt()
 
