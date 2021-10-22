@@ -116,7 +116,7 @@ def ticket_lottery_compare(ticket_1_list, lottery_list):
     comparison = [i for i in ticket_1_list + lottery_list if i in ticket_1_list and i in lottery_list]
     if comparison == None:
         return 0
-    frequency = len(comparison)
+    frequency = int(len(comparison)/2)
     return frequency
 
 Number_matches = ticket_lottery_compare(ticket_1_list, lottery_list)
