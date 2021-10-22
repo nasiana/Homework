@@ -195,29 +195,17 @@ file.close()
 with open('song.txt', 'r') as read_file:
 # x will store the contents of read_file in a readable format
     x = read_file.read()
-# z splits the file line by line
+# z splits the file line by line into a list
     z = x.split('\n')
-    # line = ['']
+    empty_lyrics = []
     for line in z:
         y = line.split()
-        for word in y:
-            if word in y == 'still':
-                print(line)
+        [empty_lyrics.append(line) for word in y if word == 'still']
 
-
-
-     #        line.append(i)
-     # return line
-
-
-# # y splits x when strings are seperated by ''
-#     y = x.split()
-#     filtered_list = [word for word in y if word ==  'still']
-#     for i in y:
-#         if i == 'still':
-#             print(filtered_list)
-#         # return filtered_list
+for i in empty_lyrics:
+    print(i)
 
 '''
 TASK 4 (API)
 '''
+print(1)
