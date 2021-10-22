@@ -50,8 +50,6 @@ def year_century():
         num_2_string = 'Twentieth'
         return ("{} Century").format(num_2_string)
 
-
-
 def number_decade():
     decade_1 = int(str(user_year)[2:])
     decade_2 = decade_1 // 10
@@ -61,8 +59,31 @@ def number_decade():
 
 year_century = year_century()
 number_decade = number_decade()
-print(("The year book was from {}. The century and decade: {}, {}.").format(user_year, year_century, number_decade))
+print(("The year the book was from {}. The century and decade: {}, {}.").format(user_year, year_century, number_decade))
 
+'''
+TASK 2 (Lists and Dictionaries)
+'''
 
+# Q1
 
+shopping_list = [
+	"oranges",
+	"cat food",
+	"sponge cake",
+	"long-grain rice",
+	"cheese board",
+]
+print(shopping_list[0])
 
+# Q2
+
+def user_choc_match():
+    user_choc = (input("What type of chocolate do you want? ")).lower()
+    chocolates = {
+        'white': 1.50, 'milk': 1.20, 'dark': 1.80, 'vegan': 2.00
+    }
+    return chocolates.get(user_choc, "Please choose from: white, milk, dark and vegan. I do not sell other types of chocolate.")
+
+price_choc = user_choc_match()
+print(price_choc)
