@@ -95,12 +95,10 @@ print(price_choc)
 import random
 
 def lottery_number():
-    num_count = 0
-    lottery_empty = []
-    while num_count < 7:
-        num_count += 1
-        num_rand = random.randint(0, 9)
-        lottery_empty.append(num_rand)
+    lottery_empty = set()
+    while (len(lottery_empty)) < 7:
+        num_rand = random.randint(1, 100)
+        lottery_empty.add(num_rand)
     return lottery_empty
 
 ticket_1 = tuple(lottery_number())
@@ -109,6 +107,20 @@ lottery = tuple(lottery_number())
 print(ticket_1)
 print(lottery)
 
+ticket_1_list = list(ticket_1)
+lottery_list = list(lottery)
+ticket_1_comp = ticket_1_list.sort()
+lottery_comp = lottery_list.sort()
+ticket_lottery_comp = ''
+
+def ticket_lottery_compare(ticket_1_comp, lottery_comp):
+    comparison = [i for i in ticket_1_comp + lottery_comp if i in (ticket_1_comp and lottery_comp)]
+    if comparison == None:
+        return 0
+    frequency = len(comparison)
+    return comparison, frequency
+
+print(ticket_lottery_compare(ticket_1_comp, lottery_comp))
 '''
 TASK 3  (Read and Write files)
 '''
