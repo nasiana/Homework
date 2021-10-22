@@ -210,18 +210,25 @@ for i in empty_lyrics:
 TASK 4 (API)
 '''
 import requests
-from pprint import pprint
+import json
 
 pokemon_list = [1, 2, 3, 4, 5, 6]
+pokemon_name = []
+pokemon_moves = []
 
-for id in pokemon_list:
-    url = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(id)
-    response = requests.get(url)
-    pokemon = response.json()
-    # pprint(pokemon)
-    print(pokemon['name'])
-    for i in pokemon['moves']:
-        print(i['move']['name'])
+def pokemon():
+    for id in pokemon_list:
+        url = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(id)
+        response = requests.get(url)
+        pokemon = response.json()
+        pokemon_name.append(pokemon['name'])
+        pokemon_moves.append(pokemon['moves'])
+    return pokemon_name, pokemon_moves
+
+pokemon = pokemon()
+
+with open('pokemon.txt', 'w') as pokemon_file:
+    pokemon_file.write(json.dumps(pokemon))
 
 
 
@@ -231,3 +238,19 @@ for id in pokemon_list:
 
 
 
+
+# import requests
+# import json
+#
+# pokemon_list = [1, 2, 3, 4, 5, 6]
+# pokemon_name = []
+#
+# def pokemon_test():
+#     for id in pokemon_list:
+#         url = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(id)
+#         response = requests.get(url)
+#         pokemon = response.json()
+#         pokemon_name.append(pokemon['name'])
+#     return pokemon_name
+#
+# print(pokemon_test())
