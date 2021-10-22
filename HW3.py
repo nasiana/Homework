@@ -209,6 +209,7 @@ for i in empty_lyrics:
 '''
 TASK 4 (API)
 '''
+
 import requests
 import json
 
@@ -225,32 +226,36 @@ def pokemon():
         pokemon_moves.append(pokemon['moves'])
     return pokemon_name, pokemon_moves
 
-pokemon = pokemon()
+def pokemon_dict():
+    pokemon()
+    pokemon_list_to_dict = {pokemon_name[i]: pokemon_moves[i] for i in range(len(pokemon_name))}
+    return pokemon_list_to_dict
+
+pokemon_dict = pokemon_dict()
 
 with open('pokemon.txt', 'w') as pokemon_file:
-    pokemon_file.write(json.dumps(pokemon))
+    pokemon_file.write(json.dumps(pokemon_dict))
 
 
 
+'''
+Considering how large these files, it is useful to run sanity checks as my brain cannot decipher these huge files by
+eye
 
+Sanity check:
+import requests
+import json
 
+pokemon_list = [1, 2, 3, 4, 5, 6]
+pokemon_name = []
 
+def pokemon_test():
+    for id in pokemon_list:
+        url = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(id)
+        response = requests.get(url)
+        pokemon = response.json()
+        pokemon_name.append(pokemon['name'])
+    return pokemon_name
 
-
-
-
-# import requests
-# import json
-#
-# pokemon_list = [1, 2, 3, 4, 5, 6]
-# pokemon_name = []
-#
-# def pokemon_test():
-#     for id in pokemon_list:
-#         url = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(id)
-#         response = requests.get(url)
-#         pokemon = response.json()
-#         pokemon_name.append(pokemon['name'])
-#     return pokemon_name
-#
-# print(pokemon_test())
+print(pokemon_test())
+'''
