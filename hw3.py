@@ -109,18 +109,19 @@ print(lottery)
 
 ticket_1_list = list(ticket_1)
 lottery_list = list(lottery)
-ticket_1_comp = ticket_1_list.sort()
-lottery_comp = lottery_list.sort()
-ticket_lottery_comp = ''
+print(ticket_1_list)
+print(lottery_list)
 
-def ticket_lottery_compare(ticket_1_comp, lottery_comp):
-    comparison = [i for i in ticket_1_comp + lottery_comp if i in (ticket_1_comp and lottery_comp)]
+def ticket_lottery_compare(ticket_1_list, lottery_list):
+    comparison = [i for i in ticket_1_list + lottery_list if i in ticket_1_list and i in lottery_list]
     if comparison == None:
         return 0
     frequency = len(comparison)
-    return comparison, frequency
+    return frequency
 
-print(ticket_lottery_compare(ticket_1_comp, lottery_comp))
+Number_matches = ticket_lottery_compare()
+
+
 '''
 TASK 3  (Read and Write files)
 '''
