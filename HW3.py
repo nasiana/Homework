@@ -53,6 +53,8 @@ def year_century():
 def number_decade():
     decade_1 = int(str(user_year)[2:])
     decade_2 = decade_1 // 10
+    # I really like this following method, do more research in reading week into the following code to see how I can\
+    # manipulate further using map and test it more to become more comfortable with it
     number2decade = {'1': "Oneties", '2': "Twenties", '3': "Thirties", '4': "Forties", '5': "Fifties", '6': "Sixties",
             '7': "Seventies", '8': "Eighties", '9': "Nineties", '0': "Noughties"}
     return " ".join(map(lambda i: number2decade[i], str(decade_2)))
