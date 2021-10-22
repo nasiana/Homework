@@ -103,8 +103,8 @@ def lottery_number():
         lottery_empty.append(num_rand)
     return lottery_empty
 
-ticket_1 = tuple(lottery_numbers())
-lottery = tuple(lottery_numbers())
+ticket_1 = tuple(lottery_number())
+lottery = tuple(lottery_number())
 
 print(ticket_1)
 print(lottery)
