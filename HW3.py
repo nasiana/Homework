@@ -1,3 +1,4 @@
+
 '''
 HOMEWORK 3: Nasian Ahmed
 '''
@@ -89,3 +90,123 @@ def user_choc_match():
 
 price_choc = user_choc_match()
 print(price_choc)
+
+# HW 3
+
+import random
+
+def lottery_number():
+    lottery_empty = set()
+    while (len(lottery_empty)) < 7:
+        num_rand = random.randint(1, 100)
+        lottery_empty.add(num_rand)
+    return lottery_empty
+
+ticket_1 = tuple(lottery_number())
+lottery = tuple(lottery_number())
+
+print("The numbers for your lottery ticket are: {}".format(ticket_1))
+print("The numbers for the lottery are: {}".format(lottery))
+
+ticket_1_list = list(ticket_1)
+lottery_list = list(lottery)
+
+def ticket_lottery_compare(ticket_1_list, lottery_list):
+    # practise some more with list comprehension in reading week, also go over the following code a bit more/
+    # in reading week
+    comparison = [i for i in ticket_1_list + lottery_list if i in ticket_1_list and i in lottery_list]
+    if comparison == None:
+        return 0
+    frequency = int(len(comparison)/2)
+    return frequency
+
+Number_matches = ticket_lottery_compare(ticket_1_list, lottery_list)
+print("The number of matches between your ticket and lottery is {}".format(Number_matches))
+
+def lottery_prizes(Number_matches):
+    if Number_matches == 3:
+        return "You have won £20 for three matching numbers"
+    elif Number_matches == 4:
+        return "You have won £40 for four matching numbers"
+    elif Number_matches == 5:
+        return "You have won £100 for five matching numbers"
+    elif Number_matches == 6:
+        return "You have won  £10000 for six matching numbers"
+    elif Number_matches == 7:
+        return "You have won £1000000 for seven matching numbers"
+    else:
+        return "You haven't won anything, sorry! "
+
+lottery_prizes = (lottery_prizes(Number_matches))
+print(lottery_prizes)
+
+'''
+TASK 3  (Read and Write files)
+'''
+
+# Q2
+
+# Example solution
+
+poem = 'I like Python and I am not very good at poems'
+with open('poem.txt', 'w') as poem_file:
+    poem_file.write(poem)
+
+# Q3
+
+# Q3: TASK 1
+
+elton_lyrics = [
+"\nYou could never know what it's like",
+"\nYour blood like winter freezes just like ice",
+"\nAnd there's a cold lonely light that shines from you",
+"\nYou'll wind up like the wreck you hide behind that mask you\
+use",
+"\n"
+"\nAnd did you think this fool could never win?",
+"\nWell look at me, I'm coming back again",
+"\nI got a taste of love in a simple way",
+"\nAnd  if  you  need  to   know   while  I'm   still   standing,  you  just\
+fade away",
+"\n"
+"\nDon't you know I'm still standing better than I ever did",
+"\nLooking like a true survivor, feeling like a little kid",
+"\nI'm still standing after all this time",
+"\nPicking up the pieces of my life without you on my mind",
+"\n"
+"\nI'm still standing (Yeah, yeah, yeah)",
+"\nI'm still standing (Yeah, yeah, yeah)",
+]
+
+with open('song.txt', 'w') as elton:
+    elton.writelines(elton_lyrics)
+
+# Q3: TASK 2
+
+# If the file does not exist, then the 'r' and 'r+' modes will throw an error hence\
+# the file has not been created successfully.
+# If the file has been created successfully, i.e. the file exists, then the 'r' and 'r+'\
+# modes will not throw an error and the code will run fine
+
+file = open('song.txt', 'r')
+file.close()
+
+# Q3: TASK 3
+
+with open('song.txt', 'r') as read_file:
+# x will store the contents of read_file in a readable format
+    x = read_file.read()
+# z splits the file line by line into a list
+    z = x.split('\n')
+    empty_lyrics = []
+    for line in z:
+        y = line.split()
+        [empty_lyrics.append(line) for word in y if word == 'still']
+
+for i in empty_lyrics:
+    print(i)
+
+'''
+TASK 4 (API)
+'''
+print(1)
