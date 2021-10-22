@@ -104,23 +104,40 @@ def lottery_number():
 ticket_1 = tuple(lottery_number())
 lottery = tuple(lottery_number())
 
-print(ticket_1)
-print(lottery)
+print("The numbers for your lottery ticket are: {}".format(ticket_1))
+print("The numbers for the lottery are: {}".format(lottery))
 
 ticket_1_list = list(ticket_1)
 lottery_list = list(lottery)
-print(ticket_1_list)
-print(lottery_list)
 
 def ticket_lottery_compare(ticket_1_list, lottery_list):
+    # practise some more with list comprehension in reading week, also go over the following code a bit more/
+    # in reading week
     comparison = [i for i in ticket_1_list + lottery_list if i in ticket_1_list and i in lottery_list]
     if comparison == None:
         return 0
     frequency = len(comparison)
     return frequency
 
-Number_matches = ticket_lottery_compare()
+Number_matches = ticket_lottery_compare(ticket_1_list, lottery_list)
+print("The number of matches between your ticket and lottery is {}".format(Number_matches))
 
+def lottery_prizes(Number_matches):
+    if Number_matches == 3:
+        return "You have won £20 for three matching numbers"
+    elif Number_matches == 4:
+        return "You have won £40 for four matching numbers"
+    elif Number_matches == 5:
+        return "You have won £100 for five matching numbers"
+    elif Number_matches == 6:
+        return "You have won  £10000 for six matching numbers"
+    elif Number_matches == 7:
+        return "You have won £1000000 for seven matching numbers"
+    else:
+        return "You haven't won anything, sorry! "
+
+lottery_prizes = (lottery_prizes(Number_matches))
+print(lottery_prizes)
 
 '''
 TASK 3  (Read and Write files)
