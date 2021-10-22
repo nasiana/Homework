@@ -153,24 +153,71 @@ poem_file.write(poem)
 
 # Q3
 
-# TASK 1
+# Q3: TASK 1
 
-elton_lyrics =
-"
-"You could never know what it's like\
-\nYour blood like winter freezes just like ice\
-\nAnd there's a cold lonely light that shines from you\
-\nYou'll wind up like the wreck you hide behind that mask you\
-use\
-\nAnd did you think this fool could never win?\
-\nWell look at me, I'm coming back again\
-\nI got a taste of love in a simple way\
-\nAnd  if  you  need  to   know   while  I'm   still   standing,  you  just\
-fade away\
-\nDon't you know I'm still standing better than I ever did\
-\nLooking like a true survivor, feeling like a little kid\
-\nI'm still standing after all this time\
-\nPicking up the pieces of my life without you on my mind\
-\nI'm still standing (Yeah, yeah, yeah)\
-\nI'm still standing (Yeah, yeah, yeah)\
-"
+elton_lyrics = [
+"\nYou could never know what it's like",
+"\nYour blood like winter freezes just like ice",
+"\nAnd there's a cold lonely light that shines from you",
+"\nYou'll wind up like the wreck you hide behind that mask you\
+use",
+"\n"
+"\nAnd did you think this fool could never win?",
+"\nWell look at me, I'm coming back again",
+"\nI got a taste of love in a simple way",
+"\nAnd  if  you  need  to   know   while  I'm   still   standing,  you  just\
+fade away",
+"\n"
+"\nDon't you know I'm still standing better than I ever did",
+"\nLooking like a true survivor, feeling like a little kid",
+"\nI'm still standing after all this time",
+"\nPicking up the pieces of my life without you on my mind",
+"\n"
+"\nI'm still standing (Yeah, yeah, yeah)",
+"\nI'm still standing (Yeah, yeah, yeah)",
+]
+
+with open('song.txt', 'w') as elton:
+    elton.writelines(elton_lyrics)
+
+# Q3: TASK 2
+
+# If the file does not exist, then the 'r' and 'r+' modes will throw an error hence\
+# the file has not been created successfully.
+# If the file has been created successfully, i.e. the file exists, then the 'r' and 'r+'\
+# modes will not throw an error and the code will run fine
+
+file = open('song.txt', 'r')
+file.close()
+
+# Q3: TASK 3
+
+with open('song.txt', 'r') as read_file:
+# x will store the contents of read_file in a readable format
+    x = read_file.read()
+# z splits the file line by line
+    z = x.split('\n')
+    # line = ['']
+    for line in z:
+        y = line.split()
+        for word in y:
+            if word in y == 'still':
+                print(line)
+
+
+
+     #        line.append(i)
+     # return line
+
+
+# # y splits x when strings are seperated by ''
+#     y = x.split()
+#     filtered_list = [word for word in y if word ==  'still']
+#     for i in y:
+#         if i == 'still':
+#             print(filtered_list)
+#         # return filtered_list
+
+'''
+TASK 4 (API)
+'''
