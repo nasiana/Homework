@@ -209,4 +209,25 @@ for i in empty_lyrics:
 '''
 TASK 4 (API)
 '''
-print(1)
+import requests
+from pprint import pprint
+
+pokemon_list = [1, 2, 3, 4, 5, 6]
+
+for id in pokemon_list:
+    url = 'https://pokeapi.co/api/v2/pokemon/{}/'.format(id)
+    response = requests.get(url)
+    pokemon = response.json()
+    # pprint(pokemon)
+    print(pokemon['name'])
+    for i in pokemon['moves']:
+        print(i['move']['name'])
+
+
+
+
+
+
+
+
+
