@@ -62,6 +62,7 @@ utilized for the purposes of pushing the user’s repository to several reposito
 WORKING DIRECTORY STATES:
 
 ·        Staged
+
 There are two types of files which are able to be added to a staging stage; modified or untracked states. When a file 
 is in a staging state, it is either not present in the most recent commit or it is a ‘modified’ file that the user 
 instructs git to incorporate in the next commit.
@@ -82,6 +83,7 @@ the Git directory  within a snapshot. The ‘git commit’ command is employed t
 command is to produce a new snapshot of the Git directory and demonstrates some stats in relation to the change made.
 
 GIT COMMANDS:
+
 ·        Git add
 
 This command is utilized to incorporate the changes of a file into the user’s next commit.
