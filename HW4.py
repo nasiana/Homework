@@ -151,10 +151,24 @@ into the local repository.
 
 set_pin_code = 1234
 
-i = 0
+'''
+Brainstorming potential errors:
+If they enter a string
+If they enter something that is not 4 digits
+'''
+
+def user_pin_string():
+    user_pin = (input("Please enter you PIN code as a 4 digit number: "))
+    try:
+        user_pin = int(user_pin)
+    except (TypeError):
+        print("Your number is not an integer please try again.")
+
+def pin_loop():
+    i = 0
     while i < 3:
         i += 1
-        user_pin = int(input("Please enter you PIN code as a 4 digit number: "))
+        user_pin_string()
         if user_pin != set_pin_code:
             continue
         else:
@@ -163,3 +177,13 @@ i = 0
         print("You have entered the incorrect pin more than 3. You are now exited from the program.")
 
 
+def user_pin_valid():
+    # this will ensure that the length is 4 digits
+    assert len(user_pin) == 4
+    return True
+
+try:
+    pin_loop()
+    user_pin_valid()
+except:
+    print("Your pin number must be at least 4 digits long")
