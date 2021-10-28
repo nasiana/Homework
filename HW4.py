@@ -163,6 +163,7 @@ def user_pin_string():
         user_pin = int(user_pin)
     except (TypeError):
         print("Your number is not an integer please try again.")
+    return user_pin
 
 def pin_loop():
     i = 0
@@ -182,8 +183,19 @@ def user_pin_valid():
     assert len(user_pin) == 4
     return True
 
-try:
-    pin_loop()
-    user_pin_valid()
-except:
-    print("Your pin number must be at least 4 digits long")
+first_stage = True
+
+while first_stage:
+    try:
+        pin_loop()
+        user_pin_valid()
+    except AssertionError as exc:
+        print("Your pin number must be at least 4 digits long")
+    else:
+        first_stage = False
+    finally:
+        if first_stage:
+            print("You have successfully got through the first stage.")
+        else:
+            print("You will go through the whole process again to enter your pin")
+
