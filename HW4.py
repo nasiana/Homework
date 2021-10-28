@@ -81,4 +81,37 @@ When a file is in the committed state, this has the definition that the changes 
 the Git directory  within a snapshot. The ‘git commit’ command is employed to commit the file. The consequence of this 
 command is to produce a new snapshot of the Git directory and demonstrates some stats in relation to the change made.
 
+GIT COMMANDS:
+·        Git add
+
+This command is utilized to incorporate the changes of a file into the user’s next commit.
+
+A user creating, deleting or modifying  a file will result in changes occurring locally and will not be incorporated in 
+the next commit unless explicitly done so using Git commands such as ‘git add’.
+
+The repository is not changed by the use of the ‘git add’ command. In addition, until the ‘git commit’ command is 
+utilized the changes will not be saved from solely the use of the ‘git add’ command.
+
+
+·        Git commit
+
+The ‘git commit’ command is used when the user wants to save their changes. Git commit only locally saves changes made.
+
+A commit in Git can be understood as a snapshot of your repository represented at a particular point in time.
+
+·        Git push
+
+Once the user has committed the changes; Git push is the next step so that the changes can be pushed (sent) to the 
+remote server. The ‘git push’ command will upload the user’s commits to the remote repository.
+
+If the branch the user wishes to upload is newly created, there are various ways to do this but one such way is with 
+‘git push <remote> <branch-name>’.
+
+Changes must be committed for them to be uploaded by using the Git push command.
+
+·        Git fetch
+
+·        Git merge
+
+·        Git pull
 '''
