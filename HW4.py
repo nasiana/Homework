@@ -31,9 +31,7 @@ file is  copied from the working directory into the staging by use of the ‘git
 inaccurately thought that the file is moved into the staging area, this is not accurate - the file is copied into the 
 staging area. This file will now be tracked by Git.
 
-There are two types of files which are able to be added to a staging stage; modified or untracked states. When a file 
-is in a staging state, it is either not present in the most recent commit or it is a ‘modified’ file that the user 
-instructs git to incorporate in the next commit.
+There are two types of files which are able to be added to a staging stage; modified or untracked states. 
 
 
 ·        Local Repo (head)
@@ -51,4 +49,27 @@ working from foreign machines.
 
 
 ·        Remote repo (master)
+
+Git permits the user to synchronize local repositories with the remote repositories. This is so other users can access 
+these files and synchronize their changes with the author. 
+
+The synchronization is achieved through the deployment of two Git commands: push and pull.
+
+The command for the push command is ‘git push’ plus relevant. The push command is employed so that all the commits can 
+be pushed from the current repository to the tracked remote repository. It is also possible that this command be 
+utilized for the purposes of pushing the user’s repository to several repositories immediately. 
+
+WORKING DIRECTORY STATES:
+
+·        Staged
+There are two types of files which are able to be added to a staging stage; modified or untracked states. When a file 
+is in a staging state, it is either not present in the most recent commit or it is a ‘modified’ file that the user 
+instructs git to incorporate in the next commit.
+
+‘git add’ is utilized to add files to the staging state. 
+
+·        Modified
+
+·        Committed
+
 '''
