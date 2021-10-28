@@ -142,3 +142,24 @@ The ‘git pull’ command instructs the local git to retrieve the most recent m
 into the local repository. It is different to Git fetch in that it does the same thing but additionally copies the data 
 into the local repository.
 '''
+
+"""
+# TASK 2 (Exception Handling)
+"""
+
+# Question 1
+
+set_pin_code = 1234
+
+i = 0
+    while i < 3:
+        i += 1
+        user_pin = int(input("Please enter you PIN code as a 4 digit number: "))
+        if user_pin != set_pin_code:
+            continue
+        else:
+            break
+    else:
+        print("You have entered the incorrect pin more than 3. You are now exited from the program.")
+
+
