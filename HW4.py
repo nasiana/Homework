@@ -70,6 +70,15 @@ instructs git to incorporate in the next commit.
 
 ·        Modified
 
+A file being in the ‘modified’ state has the definition that the changes which have been made to the file have not been 
+committed yet. The changes could possibly be modifying, adding or deleting the contents of the file. 
+
+These files will be incorporated into the next commit but will be incorporated in their corresponding new state.
+
 ·        Committed
+
+When a file is in the committed state, this has the definition that the changes made to the file have been stored in 
+the Git directory  within a snapshot. The ‘git commit’ command is employed to commit the file. The consequence of this 
+command is to produce a new snapshot of the Git directory and demonstrates some stats in relation to the change made.
 
 '''
