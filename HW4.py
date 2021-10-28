@@ -111,7 +111,32 @@ Changes must be committed for them to be uploaded by using the Git push command.
 
 ·        Git fetch
 
+The ‘git fetch’ command is used to instruct the local git to retrieve the most recent meta-data from the original i.e. 
+from a remote repository into a local repository. It is mistakenly thought that this command executes file-transferring,
+however, it is actually more similar to the objective of a ‘check’ where it checks whether there are any changes 
+available.
+
 ·        Git merge
 
+The purpose of the Git merge branch is to merge the branch you have been working in with the parent branch. This 
+command essentially merges the parent branch with the user’s feature branch including all of its commits. It is of 
+utmost importance to remember that the user must first be on the specific branch that they wish to merge with 
+their feature branch. 
+
+The Git fetch command is executed before the Git merge command.
+
+It’s very important that before the branches are merged that the dev branch has the latest version, or else there is a 
+possibility of conflicts with data and other such undesirable issues.
+
+The main objective of Git merge is to merge (combine) two branches. 
+
+Merging integrates the content, retrieved from a source branch, with a target branch. The source branch history does 
+not change and stays the same; it is solely the target branch which will be changed.
+
+
 ·        Git pull
+
+The ‘git pull’ command instructs the local git to retrieve the most recent meta-data from the original and copy them 
+into the local repository. It is different to Git fetch in that it does the same thing but additionally copies the data 
+into the local repository.
 '''
