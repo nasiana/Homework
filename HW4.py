@@ -178,7 +178,7 @@ def pin_loop():
             first_stage = True
             break
     else:
-        print("You have entered the incorrect pin more than 3 times. You are now exited from the program. However\"
+        print("You have entered the incorrect pin more than 3 times. You are now exited from the program. However "\
               "you will be re-entered into the program to make sure you complete this and proceed to withdrawal.")
     return user_pin, first_stage
 
@@ -202,7 +202,7 @@ else:
             print("Your input is not valid please try again.")
         else:
             print("Your withdrawal amount is {}".format(withdrawal_amount))
-            # I added this for myself but this is not in the CFG guidelines so don't include it
+            # I added this for myself but this is not in the CFG guidelines so don't include it, but work on this some more and manipulate in reading week
             # assert withdrawal_amount >= 0
             # try:
             #     pass
@@ -246,8 +246,8 @@ else:
         try:
             account_balance -= withdrawal_amount
         except AssertionError:
-            print("Assertion error: Either the withdrawal amount can not be more money then you have in your bank\
-             account or the balance cannot be less than 0")
+            print("Assertion error: Either the withdrawal amount can not be more money then you have in your bank "\
+             "account or the balance cannot be less than 0")
         else:
             print("Remaining balance: {}".format(account_balance))
 
