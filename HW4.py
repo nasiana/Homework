@@ -189,76 +189,82 @@ def pin_loop():
 
 while first_stage == False:
     user_pin, first_stage = pin_loop()
-    print("I will be running this program until you enter a correct PIN.")
 else:
     print("We are proceeding on to the next step now")
+    '''
+    Simulation of cash withdrawal
+    '''
 
-'''
-Simulation of cash withdrawal
-'''
 
-def withdrawal_amount_string():
-    withdrawal_amount = (input("Please enter your withdrawal amount: "))
-    try:
-        withdrawal_amount = float(withdrawal_amount)
-    except (ValueError):
-        print("Your input is not valid please try again.")
-    else:
+    def withdrawal_amount_string():
+        withdrawal_amount = (input("Please enter your withdrawal amount: "))
         try:
-            assert withdrawal_amount >= 0
+            withdrawal_amount = float(withdrawal_amount)
+        except (ValueError):
+            print("Your input is not valid please try again.")
+        else:
+            try:
+                assert withdrawal_amount >= 0
+            except AssertionError as exc:
+                print("The withdrawal amount has to be a value greater than or equal to 0.")
+            else:
+                print(
+                    "Okay, this withdrawal amount has been accepted and will be withdrawn from you account in the next stage.")
+        return withdrawal_amount
+
+
+    '''
+    For my code, I programmed it to perform  steps
+    7. However, when a user asks to ‘withdraw’ more money than they have on their account, then you need to raise an error 
+    an exit the program.
+
+    Before 
+
+    6.       Subtract the amount from the account balance and display the remaining
+    balance (NOTE! The balance cannot be negative!)
+
+    We were told on this course to think like Software Engineers and think about the end product, well it does not really
+    make much sense to perform (6) before (7). It does not make sense based on the average mathematical logic a the average
+    person possesses and it just does not make sense according to the average person. 
+
+    It especially does not make sense with my code as I have programmed it so that the withdrawal amount can not be less
+    tha 0, therefore the restrictions to put in place are 7 then 6. 
+    My withdrawal amount = x, account balance = y
+
+    Where constriction 6 can be represented as: y >= 0
+    Constriction 7 is represented as: x < y
+
+    If x is always >= 0 (due to earlier programming) , and y is already set at the positive integer value of 100.
+
+    Therefore I should program it first so that x < y, and if y is initially set so
+    y = 100 and x is initially set to be x >= 0, when you perform y - x it would follow then the condition of y >= 0 would 
+    be automatically fullfilled. Regardless I programmed it anyways.
+    '''
+
+
+    def subtraction_account():
+        account_balance = 100
+        withdrawal_amount = withdrawal_amount_string()
+        assert withdrawal_amount < account_balance
+        try:
+            account_balance -= withdrawal_amount
         except AssertionError as exc:
-            print("The withdrawal amount has to be a value greater than or equal to 0.")
+            print("The withdrawal amount can not be more money then you have in your bank account.")
         else:
-            print(
-                "Okay, this withdrawal amount has been accepted and will be withdrawn from you account in the next stage.")
-    return withdrawal_amount
+            assert account_balance >= 0
+            try:
+                pass
+            except:
+                print("The balance cannot be less than 0")
+            else:
+                print("Remaining balance: {}".format(account_balance))
 
-'''
-For my code, I programmed it to perform  steps
-7. However, when a user asks to ‘withdraw’ more money than they have on their account, then you need to raise an error 
-an exit the program.
 
-Before 
+    subtraction_account()
 
-6.       Subtract the amount from the account balance and display the remaining
-balance (NOTE! The balance cannot be negative!)
 
-We were told on this course to think like Software Engineers and think about the end product, well it does not really
-make much sense to perform (6) before (7). It does not make sense based on the average mathematical logic a the average
-person possesses and it just does not make sense according to the average person. 
 
-It especially does not make sense with my code as I have programmed it so that the withdrawal amount can not be less
-tha 0, therefore the restrictions to put in place are 7 then 6. 
-My withdrawal amount = x, account balance = y
 
-Where constriction 6 can be represented as: y >= 0
-Constriction 7 is represented as: x < y
-
-If x is always >= 0 (due to earlier programming) , and y is already set at the positive integer value of 100.
-
-Therefore I should program it first so that x < y, and if y is initially set so
-y = 100 and x is initially set to be x >= 0, when you perform y - x it would follow then the condition of y >= 0 would 
-be automatically fullfilled. Regardless I programmed it anyways.
-'''
-
-def subtraction_account():
-    account_balance = 100
-    withdrawal_amount = withdrawal_amount_string()
-    assert withdrawal_amount < account_balance
-    try:
-        account_balance -= withdrawal_amount
-    except AssertionError as exc:
-        print("The withdrawal amount can not be more money then you have in your bank account.")
-    else:
-        assert account_balance >= 0
-        try:
-            pass
-        except:
-            print("The balance cannot be less than 0")
-        else:
-            print("Remaining balance: {}".format(account_balance))
-
-subtraction_account()
 
 
 
