@@ -165,11 +165,6 @@ def user_pin_string():
 
 first_stage = False
 
-# def user_pin_valid():
-#     user_pin_string()
-#     assert range(user_pin) == 4
-#     return user_pin_valid()
-
 def pin_loop():
     i = 0
     first_stage = False
@@ -183,7 +178,8 @@ def pin_loop():
             first_stage = True
             break
     else:
-        print("You have entered the incorrect pin more than 3 times. You are now exited from the program.")
+        print("You have entered the incorrect pin more than 3 times. You are now exited from the program. However\"
+              "you will be re-entered into the program to make sure you complete this and proceed to withdrawal.")
     return user_pin, first_stage
 
 
@@ -200,15 +196,18 @@ else:
         withdrawal_amount = (input("Please enter your withdrawal amount: "))
         try:
             withdrawal_amount = float(withdrawal_amount)
-        # i added both ValueError and TypeError due to code later on and errors which may come
+        # i added both ValueError and TypeError due to code later on and errors which may come as it is possible/
+        # now either that either of these types may occur
         except (ValueError, TypeError):
             print("Your input is not valid please try again.")
         else:
-            assert withdrawal_amount >= 0
-            try:
-                pass
-            except AssertionError:
-                print("The withdrawal amount has to be a value greater than or equal to 0.")
+            print("Your withdrawal amount is {}".format(withdrawal_amount))
+            # I added this for myself but this is not in the CFG guidelines so don't include it
+            # assert withdrawal_amount >= 0
+            # try:
+            #     pass
+            # except AssertionError:
+            #     print("The withdrawal amount has to be a value greater than or equal to 0.")
         return withdrawal_amount
 
 
@@ -226,8 +225,6 @@ else:
     make much sense to perform (6) before (7). It does not make sense based on the average mathematical logic a the average
     person possesses and it just does not make sense according to the average person. 
 
-    It especially does not make sense with my code as I have programmed it so that the withdrawal amount can not be less
-    tha 0, therefore the restrictions to put in place are 7 then 6. 
     My withdrawal amount = x, account balance = y
 
     Where constriction 6 can be represented as: y >= 0
@@ -245,18 +242,14 @@ else:
         account_balance = 100
         withdrawal_amount = withdrawal_amount_string()
         assert withdrawal_amount < account_balance
+        assert account_balance >= 0
         try:
             account_balance -= withdrawal_amount
         except AssertionError:
-            print("The withdrawal amount can not be more money then you have in your bank account.")
+            print("Assertion error: Either the withdrawal amount can not be more money then you have in your bank\
+             account or the balance cannot be less than 0")
         else:
-            assert account_balance >= 0
-            try:
-                pass
-            except:
-                print("The balance cannot be less than 0")
-            else:
-                print("Remaining balance: {}".format(account_balance))
+            print("Remaining balance: {}".format(account_balance))
 
 
     subtraction_account()
