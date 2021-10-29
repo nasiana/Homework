@@ -209,11 +209,29 @@ def withdrawal_amount_string():
         try:
             assert withdrawal_amount >= 0
         except AssertionError as exc:
-            print("The withdrawal amount has to be a value greater than 0")
+            print("The withdrawal amount has to be a value greater than or equal to 0.")
         else:
             print(
                 "Okay, this withdrawal amount has been accepted and will be withdrawn from you account in the next stage.")
     return withdrawal_amount
 
-def 
+def subtraction_account():
+    withdrawal_amount = withdrawal_amount_string()
+    assert withdrawal_amount < account_balance
+    try:
+        account_balance -= withdrawal_amount
+    except AssertionError as exc:
+        print("The withdrawal amount can not be more money then you have in your bank account.")
+    else:
+        assert account_balance >= 0
+        try:
+            pass
+        except:
+            print("The balance cannot be less than 0")
+        else:
+            print(f"Remaining balance: {}".format(account_balance))
+
+subtraction_account()
+
+
 
