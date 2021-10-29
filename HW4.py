@@ -191,25 +191,24 @@ while first_stage == False:
     user_pin, first_stage = pin_loop()
 else:
     print("We are proceeding on to the next step now")
+
     '''
     Simulation of cash withdrawal
     '''
-
 
     def withdrawal_amount_string():
         withdrawal_amount = (input("Please enter your withdrawal amount: "))
         try:
             withdrawal_amount = float(withdrawal_amount)
-        except (ValueError):
+        # i added both ValueError and TypeError due to code later on and errors which may come
+        except (ValueError, TypeError):
             print("Your input is not valid please try again.")
         else:
+            assert withdrawal_amount >= 0
             try:
-                assert withdrawal_amount >= 0
-            except AssertionError as exc:
+                pass
+            except AssertionError:
                 print("The withdrawal amount has to be a value greater than or equal to 0.")
-            else:
-                print(
-                    "Okay, this withdrawal amount has been accepted and will be withdrawn from you account in the next stage.")
         return withdrawal_amount
 
 
@@ -248,7 +247,7 @@ else:
         assert withdrawal_amount < account_balance
         try:
             account_balance -= withdrawal_amount
-        except AssertionError as exc:
+        except AssertionError:
             print("The withdrawal amount can not be more money then you have in your bank account.")
         else:
             assert account_balance >= 0
