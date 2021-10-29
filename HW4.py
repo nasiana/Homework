@@ -149,53 +149,71 @@ into the local repository.
 
 # Question 1
 
-set_pin_code = 1234
+'''
+The following code is to be executed for the purposes of the user entering the pin
+'''
 
-'''
-Brainstorming potential errors:
-If they enter a string
-If they enter something that is not 4 digits
-'''
+set_pin_code = 1998
 
 def user_pin_string():
-    user_pin = (input("Please enter you PIN code as a 4 digit number: "))
+    user_pin = (input("Please enter you PIN code: "))
     try:
         user_pin = int(user_pin)
-    except (TypeError):
+    except (ValueError):
         print("Your number is not an integer please try again.")
     return user_pin
 
+first_stage = False
+
+# def user_pin_valid():
+#     user_pin_string()
+#     assert range(user_pin) == 4
+#     return user_pin_valid()
+
 def pin_loop():
     i = 0
+    first_stage = False
     while i < 3:
+        user_pin = user_pin_string()
         i += 1
-        user_pin_string()
         if user_pin != set_pin_code:
             continue
         else:
+            print("You have entered the correct pin!")
+            first_stage = True
             break
     else:
-        print("You have entered the incorrect pin more than 3. You are now exited from the program.")
+        print("You have entered the incorrect pin more than 3 times. You are now exited from the program.")
+    return user_pin, first_stage
 
 
-def user_pin_valid():
-    # this will ensure that the length is 4 digits
-    assert len(user_pin) == 4
-    return True
+while first_stage == False:
+    user_pin, first_stage = pin_loop()
+    print("I will be running this program until you enter a correct PIN.")
+else:
+    print("We are proceeding on to the next step now")
 
-first_stage = True
+'''
+Simulation of cash withdrawal
+'''
 
-while first_stage:
+account_balance = 100
+
+def withdrawal_amount_string():
+    withdrawal_amount = (input("Please enter your withdrawal amount: "))
     try:
-        pin_loop()
-        user_pin_valid()
-    except AssertionError as exc:
-        print("Your pin number must be at least 4 digits long")
+        withdrawal_amount = float(withdrawal_amount)
+    except (ValueError):
+        print("Your input is not valid please try again.")
     else:
-        first_stage = False
-    finally:
-        if first_stage:
-            print("You have successfully got through the first stage.")
+        try:
+            assert withdrawal_amount >= 0
+        except AssertionError as exc:
+            print("The withdrawal amount has to be a value greater than 0")
         else:
-            print("You will go through the whole process again to enter your pin")
+            print(
+                "Okay, this withdrawal amount has been accepted and will be withdrawn from you account in the next stage.")
+    return withdrawal_amount
+
+def 
 
