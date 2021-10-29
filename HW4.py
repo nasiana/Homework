@@ -212,6 +212,9 @@ else:
 
 
     '''
+    Note to Rehana/Andreea/Hassan: LOL please ignore these comments they pertain to programming i commented out, but I want to have these comments
+    so my brain can understand what I did when I come back later to this code to improve it.
+    
     For my code, I programmed it to perform  steps
     7. However, when a user asks to ‘withdraw’ more money than they have on their account, then you need to raise an error 
     an exit the program.
@@ -224,6 +227,9 @@ else:
     We were told on this course to think like Software Engineers and think about the end product, well it does not really
     make much sense to perform (6) before (7). It does not make sense based on the average mathematical logic a the average
     person possesses and it just does not make sense according to the average person. 
+    
+    It especially does not make sense with my code as I have programmed it so that the withdrawal amount can not be less
+    than 0, therefore the restrictions to put in place are 7 then 6. 
 
     My withdrawal amount = x, account balance = y
 
@@ -237,24 +243,24 @@ else:
     be automatically fullfilled. Regardless I programmed it anyways.
     '''
 
-
     def subtraction_account():
         account_balance = 100
         withdrawal_amount = withdrawal_amount_string()
-        assert withdrawal_amount < account_balance
-        assert account_balance >= 0
         try:
             account_balance -= withdrawal_amount
+            assert withdrawal_amount < account_balance
+            assert account_balance >= 0
         except AssertionError:
             print("Assertion error: Either the withdrawal amount can not be more money then you have in your bank "\
              "account or the balance cannot be less than 0")
         else:
             print("Remaining balance: {}".format(account_balance))
 
-
     subtraction_account()
 
-
+"""
+TASK 3: (Testing)
+"""
 
 
 
