@@ -260,7 +260,43 @@ else:
 
 """
 TASK 3: (Testing)
+
+Question 1:
+Use the Simple ATM program to write unit tests for your functions.
+You are allowed to re-factor your function to ‘untangle’ some logic into smaller blocks of code to make it easier to write tests.
+Try to write at least 5 unit tests in total covering various cases.
+
 """
+
+# Q1
+
+""""
+I have accepted I'll get 0 marks on this question; I spent all day trouble shooting Github and I spent literally
+hours (my entire day) figuring it out, so didn't have enough time to really do this.
+C'est la vie
+"""
+
+def user_pin_string():
+    user_pin = (input("Please enter you PIN code: "))
+    try:
+        user_pin = int(user_pin)
+    except (ValueError):
+        print("Your number is not an integer please try again.")
+    return user_pin
+
+from unittest import mock
+from unittest import TestCase
+
+class Test_user_pin_string(TestCase):
+    @mock.patch(user_pin)
+    def user_pin_string(self, mock_user_pin):
+        user_pin = "abc"
+        mock_user_pin.return_value = "abc"
+        expected = AssertionError
+        result = mock_user_pin
+        self.assertEqual(expected, result)
+
+
 
 
 
