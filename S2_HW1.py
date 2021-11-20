@@ -40,24 +40,36 @@ class CashRegister:
         return self.total_items
 
     def apply_discount(self):
-        pass
+        discount = float(input('What is the discount value? '))
+        self.discount += discount
+        return self.discount
 
     def get_total(self):
-        pass
+        if self.discount != 0:
+            self.total_price *= self.discount
+        return self.total_price
 
     def show_items(self):
-        pass
+        print("The receipt is as follows: {}".format(self.total_items))
+        if self.discount != 0:
+            print("The total price applied with the discount is: {}".format(self.total_price))
+        else:
+            print("The total price applied without discount is: {}".format(self.total_price))
 
     def reset_register(self):
-        pass
+        # use the .clear() method to clear the dictionary
+        self.total_items.clear()
+        # use the del keyword to delete Python variables
+        del self.total_price
+        del self.discount
 
-c1 = CashRegister()
-c1.add_item()
+
 
 # EXAMPLE code run:
 
 # ADD
-
+c1 = CashRegister()
+c1.add_item()
 
 """
 
