@@ -46,7 +46,7 @@ class CashRegister:
             delete = (input('Please enter the name of the item you wish to delete ')).lower()
             if delete in self.total_items:
                 if self.discount != 0:
-                    self.total_price -= (self.discount * self.total_items[delete])
+                    self.total_price -= ((1 - self.discount) * self.total_items[delete])
                     del self.total_items[delete]
                 else:
                     self.total_price -= self.total_items[delete]
