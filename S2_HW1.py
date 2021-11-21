@@ -111,6 +111,7 @@ Software Student and Data Science student.
 
 """
 
+import math
 
 class Student:
 
@@ -122,6 +123,59 @@ class Student:
 
 
 # class CFGStudent(<should inherit from Student>)
-#     create new methods that manage student's subects (add/remove new subject and its graade to the dict)
+#     create new methods that manage student's subects (add/remove new subject and its grade to the dict)
 #     create a method to view all subjects taken by a student
 #     create a method  (and a new variable) to get student's overall mark (use average)
+
+class CFGStudent(Student):
+
+    def __init__(self, name, age, id):
+        super().__init__(name, age, id)
+        self.avg = 0
+
+    def add_subject(self):
+        while True:
+            subject_name = input('What subject do you want to enter? ')
+            grade_value = input('What is the grade of the subject? ')
+            key = (str(subject_name)).lower()
+            value = float(grade_value)
+            self.subjects[key] = value
+            user_q = (input("Do you want to enter more items? Enter Y/N ")).lower()
+            if user_q == ('Y').lower():
+                continue
+            else:
+                break
+        return self.subjects
+
+    def remove_subject(self):
+        while True:
+            delete = (input('Please enter the name of the subject you wish to delete ')).lower()
+            if delete in self.subjects:
+                del self.subjects[delete]
+            else:
+                print("This item was not found ")
+            user_q = (input("Do you want to delete more items? Enter Y/N ")).lower()
+            if user_q == ('Y').lower():
+                continue
+            else:
+                break
+        return self.subjects
+
+
+    def view_subject(self):
+        def getTuple(dict):
+            return tuple(dict.keys())
+        print('All the subjects taken by {} are {}'.format(self.name, getTuple(self.subjects)))
+
+    def get_average(self):
+        def getList(dict):
+            return list(dict.values())
+        grade_list = getList(self.subjects)
+        self.average = math.floor(sum(grade_list)/len(grade_list))
+        print('The average grades of {} is {}.'.format(self.name, self.average))
+        return self.average
+
+s1 = CFGStudent('Nasian', 23, 1998)
+s1.add_subject()
+s1.view_subject()
+s1.get_average()
