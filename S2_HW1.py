@@ -25,28 +25,50 @@ class CashRegister:
 
     def add_item(self):
 
-        item_name = input('What item do you want to enter into the cash register? ')
-        item_value = input('What is the cost of the item [please write in pounds]? ')
-        key = str(item_name)
-        value = float(item_value)
-        self.total_items[key] = value
-        self.total_price += value
+        while True:
+            item_name = input('What item do you want to enter into the cash register? ')
+            item_value = input('What is the cost of the item [please write in pounds]? ')
+            key = (str(item_name)).lower()
+            value = float(item_value)
+            self.total_items[key] = value
+            self.total_price += value
+            user_q = (input("Do you want to enter more items? Enter Y/N ")).lower()
+            if user_q == ('Y').lower():
+                continue
+            else:
+                break
         return self.total_items, self.total_price
+
 
     def remove_item(self):
         # To remove a key from a dictionary in Python, use the pop() method or the “del” keyword.
-        delete = input('Please enter the name of the item you wish to delete')
-        del self.total_items[delete] if delete in self.total_items else print("This item is not in the cash register")
-        return self.total_items
+        while True:
+            delete = (input('Please enter the name of the item you wish to delete ')).lower()
+            if delete in self.total_items:
+                if self.discount != 0:
+                    self.total_price -= (self.discount * self.total_items[delete])
+                    del self.total_items[delete]
+                else:
+                    self.total_price -= self.total_items[delete]
+                    del self.total_items[delete]
+            else:
+                print("This item is not in the cash register ")
+            user_q = (input("Do you want to delete more items? Enter Y/N ")).lower()
+            if user_q == ('Y').lower():
+                continue
+            else:
+                break
+        return self.total_items, self.total_price, self.discount
+
 
     def apply_discount(self):
-        discount = float(input('What is the discount value? '))
+        discount = float(input('What is the discount value [please write as a decimal value e.g. 10% = 0.1]? '))
         self.discount += discount
         return self.discount
 
     def get_total(self):
         if self.discount != 0:
-            self.total_price *= self.discount
+            self.total_price *= (1 - self.discount)
         return self.total_price
 
     def show_items(self):
@@ -62,14 +84,19 @@ class CashRegister:
         # use the del keyword to delete Python variables
         del self.total_price
         del self.discount
-
-
+        print("The cash register has been cleared.")
 
 # EXAMPLE code run:
 
 # ADD
 c1 = CashRegister()
 c1.add_item()
+c1.apply_discount()
+c1.get_total()
+c1.show_items()
+c1.remove_item()
+c1.show_items()
+c1.reset_register()
 
 """
 
