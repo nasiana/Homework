@@ -172,7 +172,7 @@ class CFGStudent(Student):
             return list(dict.values())
         grade_list = getList(self.subjects)
         self.average = math.floor(sum(grade_list)/len(grade_list))
-        print('The average grades of {} is {}.'.format(self.name, self.average))
+        print('The average grade of {} is {}.'.format(self.name, self.average))
         return self.average
 
 s1 = CFGStudent('Nasian', 23, 1998)
