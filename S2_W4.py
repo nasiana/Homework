@@ -101,7 +101,7 @@ matrix = [
 ]
 # result = [3,3]
 
-target = 32
+target = 24
 
 def search_in_matrix(matrix, target):
     rows = len(matrix)
@@ -112,39 +112,31 @@ def search_in_matrix(matrix, target):
         if target < matrix[row_idx][cols_idx] and row_idx >= 0:
             row_idx -= 1
             while matrix[row_idx][cols_idx] != target:
-                while cols_idx >= 0:
-                    if target < matrix[row_idx][cols_idx]:
-                        cols_idx -= 1
-                while cols_idx <= cols:
-                    if target > matrix[row_idx][cols_idx]:
-                        cols_idx += 1
+                if target < matrix[row_idx][cols_idx] and cols_idx >= 0:
+                    cols_idx -= 1
+                if target > matrix[row_idx][cols_idx] and cols_idx <= cols:
+                    cols_idx += 1
         if target < matrix[row_idx][cols_idx] and cols_idx >= 0:
             cols_idx -= 1
             while matrix[row_idx][cols_idx] != target:
-                while row_idx >= 0:
-                    if target < matrix[row_idx][cols_idx]:
-                        row_idx -= 1
-                while row_idx <= rows:
-                    if target > matrix[row_idx][cols_idx]:
-                        row_idx += 1
+                if target < matrix[row_idx][cols_idx] and row_idx >= 0:
+                    row_idx -= 1
+                if target > matrix[row_idx][cols_idx] and row_idx <= rows:
+                    row_idx += 1
         if target > matrix[row_idx][cols_idx] and row_idx <= rows:
             row_idx += 1
             while matrix[row_idx][cols_idx] != target:
-                while cols_idx >= 0:
-                    if target < matrix[row_idx][cols_idx]:
-                        cols_idx -= 1
-                while cols_idx <= cols:
-                    if target > matrix[row_idx][cols_idx]:
-                        cols_idx += 1
+                if target < matrix[row_idx][cols_idx] and cols_idx >= 0:
+                    cols_idx -= 1
+                if target > matrix[row_idx][cols_idx] and cols_idx <= cols:
+                    cols_idx += 1
         if target > matrix[row_idx][cols_idx] and cols_idx <= cols:
             cols_idx += 1
             while matrix[row_idx][cols_idx] != target:
-                while row_idx >= 0:
-                    if target < matrix[row_idx][cols_idx]:
-                        row_idx -= 1
-                while row_idx <= rows:
-                    if target > matrix[row_idx][cols_idx]:
-                        row_idx += 1
+                if target < matrix[row_idx][cols_idx] and row_idx >= 0:
+                    row_idx -= 1
+                if target > matrix[row_idx][cols_idx] and row_idx <= rows:
+                    row_idx += 1
     return [row_idx, cols_idx]
 
 print(search_in_matrix(matrix, target))
