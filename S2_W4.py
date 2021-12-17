@@ -42,7 +42,7 @@ matrix = [
 ]
 # result = [3,3]
 
-target = 44
+target = 2
 
 
 def search_in_matrix(matrix, target):
@@ -51,19 +51,35 @@ def search_in_matrix(matrix, target):
     row_idx = int(rows/2)
     cols_idx = int(cols/2)
     while matrix[row_idx][cols_idx] != target:
-        if matrix[row_idx][cols_idx] != target:
-            while matrix[row_idx][cols_idx] != target:
-                if target < matrix[row_idx][cols_idx]:
-                    row_idx -= 1
-                    while matrix[row_idx][cols_idx] != target:
-                        if target < matrix[row_idx][cols_idx]:
-                            cols_idx -= 1
-                if target > matrix[row_idx][cols_idx]:
-                    row_idx += 1
-                    while matrix[row_idx][cols_idx] != target:
-                        if target > matrix[row_idx][cols_idx]:
-                            cols_idx += 1
+        if target < matrix[row_idx][cols_idx]:
+            row_idx -= 1
+        if target < matrix[row_idx][cols_idx]:
+            cols_idx -= 1
+        if target > matrix[row_idx][cols_idx]:
+            row_idx += 1
+        if target > matrix[row_idx][cols_idx]:
+            cols_idx += 1
     return [row_idx, cols_idx]
 
+# def search_in_matrix(matrix, target):
+#     rows = len(matrix)
+#     cols = len(matrix[0])
+#     row_idx = int(rows/2)
+#     cols_idx = int(cols/2)
+#     while matrix[row_idx][cols_idx] != target:
+#         if matrix[row_idx][cols_idx] != target:
+#             while matrix[row_idx][cols_idx] != target:
+#                 if target < matrix[row_idx][cols_idx]:
+#                     row_idx -= 1
+#                     while matrix[row_idx][cols_idx] != target:
+#                         if target < matrix[row_idx][cols_idx]:
+#                             cols_idx -= 1
+#                 if target > matrix[row_idx][cols_idx]:
+#                     row_idx += 1
+#                     while matrix[row_idx][cols_idx] != target:
+#                         if target > matrix[row_idx][cols_idx]:
+#                             cols_idx += 1
+#     return [row_idx, cols_idx]
 
-print(search_in_matrix(matrix,target))
+
+print(search_in_matrix(matrix, target))
