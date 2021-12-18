@@ -104,8 +104,8 @@ matrix = [
 target = 24
 
 def search_in_matrix(matrix, target):
-    rows = len(matrix)
-    cols = len(matrix[0])
+    rows = len(matrix) - 1
+    cols = len(matrix[0]) - 1
     row_idx = int(rows/2)
     cols_idx = int(cols/2)
     while matrix[row_idx][cols_idx] != target:
